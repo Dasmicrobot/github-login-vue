@@ -1,0 +1,9 @@
+language: node_js
+before_install:
+  - npm i -g grunt-cli
+  - export PATH=$HOME/.local/bin:${PATH}
+install:
+  - npm i
+script:
+  - if [[ $TRAVIS_BRANCH == "master" ]]; then npm run build && grunt deploy --bucket=commits.dasmicrobot.com;
+  else npm run build; fi;
