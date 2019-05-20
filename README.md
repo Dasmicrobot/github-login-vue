@@ -1,5 +1,7 @@
 # git-activity
 
+[![Build Status](https://travis-ci.org/Dasmicrobot/github-login-vue.svg?branch=master)](https://travis-ci.org/Dasmicrobot/github-login-vue)
+
 ## Project setup
 ```
 npm install
