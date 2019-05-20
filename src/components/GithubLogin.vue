@@ -9,15 +9,13 @@
 <script>
 export default {
   name: 'GithubLogin',
-  computed: {
-    isAuthenticated: () => window.sessionStorage.getItem('github_access_token') != null
-  },
+  data: () => ({ isAuthenticated: window.sessionStorage.getItem('github_access_token') != null }),
   methods: {
     startSequence: function (event) {
       window.location.href = 'https://api.commits.dasmicrobot.com/oauth/github/login'
     },
     logout: function (event) {
-      // TODO does not trigger change in isAuthenticated
+      this.isAuthenticated = false
       window.sessionStorage.removeItem('github_access_token')
     }
   }
