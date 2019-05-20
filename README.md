@@ -1,6 +1,6 @@
 # git-activity
 
-[![Build Status](https://travis-ci.org/Dasmicrobot/github-login-vue.svg?branch=master)](https://travis-ci.org/Dasmicrobot/github-login-vue)
+[![Build Status](https://travis-ci.org/Dasmicrobot/github-activity.svg?branch=master)](https://travis-ci.org/Dasmicrobot/github-activity)
 
 ## Project setup
 ```
