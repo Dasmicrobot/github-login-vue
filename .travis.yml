@@ -5,5 +5,4 @@ before_install:
 install:
   - npm i
 script:
-  - if [[ $TRAVIS_BRANCH == "master" ]]; then npm run build && grunt deploy --bucket=commits.dasmicrobot.com;
-  else npm run build; fi;
+  - if [[ $TRAVIS_BRANCH == "master" ]]; then npm run build && grunt deploy --bucket=commits.dasmicrobot.com; else npm run build; fi;
