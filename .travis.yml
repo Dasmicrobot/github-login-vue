@@ -4,7 +4,7 @@ before_install:
 - export PATH=$HOME/.local/bin:${PATH}
 install:
 - npm i
-script: npm run build
+script: npm run lint && npm run test && npm run build
 env:
   global:
   - secure: RTUtgHgI2fUfILgtEbmNjjjljaf0l4xShzQyep9eZY/vmjDFsH6qgnTdaRIFexT4Y33xEKxtCqKaEXuy8sYjkm1DLpeHs3JvFmX2e9RJ61jdTNPjjuBXs1gBKqIztAzeI0DXK0KuQteRvVJWgPurMPKxdCNdwDE8BUod6zoxZN5hZ1u8R3JXtxjsX7Qq9X9n1uH8tCGk3Xjd089vmEY9zuC46hSQpcMqVvJMVW72J04Oh5UvokZgLQiHjES035bBEhlVe5o0NlRbb5PpfxADspOdIDUusetyM0aBGCD05Tn0m+lVOLVBCV16Uxzgyj1AzDMKrKouPmalFoOgOzl0iZC1nPhIkePK+R6giklx4Dei78vKH5D4SnIe0Sz9TF1rjYo8t/l9Mnsv4zb8ZtPwluxr4oV9bSglZUli81amywp/vX7nj+x4TUouZNx8kkTfNrbz2zpKiUyrEZkYI8dgswr5LzJcJGMyZW6v1+u7fYo9YusUq6lN8s7VOorB+scXPEUP8OCQLofW7OPr+4TdKEA7lUFM+MwC+rSH0XEN79cEKccm5MmF/rGGUgCYGt2krR8A9OtNs9bWSSh1eC401H6N3ENRxGN1wJonPUVMKtzJrNgTXq09+EG2pDkF4d4LsSlxpStbCRPaboY3dg5Kq2z/4DNZdVrzFExd9NQFrG4=
