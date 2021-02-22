@@ -6,14 +6,14 @@
 </template>
 
 <script>
-import GithubLogin from './components/GithubLogin.vue'
+import GithubLogin from './components/GithubLogin.vue';
 
 export default {
   name: 'app',
   components: {
-    GithubLogin
-  }
-}
+    GithubLogin,
+  },
+};
 </script>
 
 <style lang="scss">
