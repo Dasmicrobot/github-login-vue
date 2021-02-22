@@ -1,7 +1,7 @@
 module.exports = {
   devServer: {
     // allow redirects from foo.bar.com
-    disableHostCheck: true
+    disableHostCheck: true,
   },
   pages: {
     index: 'src/main.js',
@@ -11,7 +11,7 @@ module.exports = {
       // the source template
       template: 'public/callback_github.html',
       // output as dist/index.html
-      filename: 'callback_github.html'
-    }
-  }
-}
+      filename: 'callback_github.html',
+    },
+  },
+};
