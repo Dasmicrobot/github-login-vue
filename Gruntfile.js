@@ -1,4 +1,4 @@
-module.exports = function (grunt) {
+module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-aws');
 
   grunt.initConfig({
