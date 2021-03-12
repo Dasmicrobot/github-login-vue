@@ -12,7 +12,7 @@ env:
 deploy:
   - provider: script
     edge: true
-    script: grunt deploy --bucket=commits.dasmicrobot.com
+    script: grunt deploy --bucket=app.gitactivity.com
     on:
       branch: master
       tags: false
