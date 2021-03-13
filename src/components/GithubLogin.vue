@@ -18,7 +18,7 @@ export default {
   data: () => ({ isAuthenticated: window.sessionStorage.getItem('github_access_token') != null }),
   methods: {
     startSequence() {
-      window.location.href = 'https://api.commits.dasmicrobot.com/oauth/github/login';
+      window.location.href = 'https://api.app.gitactivity.com/oauth/github/login';
     },
     logout() {
       this.isAuthenticated = false;
