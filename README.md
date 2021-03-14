@@ -1,6 +1,6 @@
 # git-activity
 
-[![Build Status](https://travis-ci.org/Dasmicrobot/github-activity.svg?branch=master)](https://travis-ci.org/Dasmicrobot/github-activity)
+[![Tests](https://github.com/Dasmicrobot/github-activity/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/Dasmicrobot/github-activity/actions/workflows/test.yml)
 
 [Next.js](https://nextjs.org/docs/getting-started) is used here.
 
