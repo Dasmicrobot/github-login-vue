@@ -16,7 +16,7 @@ module.exports = (grunt) => {
             CacheControl: 1296000,
           },
         },
-        cwd: 'dist',
+        cwd: 'out',
         src: ['**', '!**/*.html'], // everything except html files
       },
       html: {
@@ -25,7 +25,7 @@ module.exports = (grunt) => {
             CacheControl: 'no-cache, no-store, max-age=0, must-revalidate',
           },
         },
-        cwd: 'dist',
+        cwd: 'out',
         src: '**/*.html',
       },
     },
