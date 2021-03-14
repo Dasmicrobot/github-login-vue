@@ -2,35 +2,14 @@
 
 [![Build Status](https://travis-ci.org/Dasmicrobot/github-activity.svg?branch=master)](https://travis-ci.org/Dasmicrobot/github-activity)
 
-## Project setup
-```
-npm install
-```
+[Next.js](https://nextjs.org/docs/getting-started) is used here.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Setup
+- Have `node` and `npm` available on your `$PATH`. Node version is defined in `.nvmrc`
+- Install dependencies `npm i`
+- Run locally `npm run dev`
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Deployment
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Run `npm run build`
+- Serve generated static files in `out` directory
