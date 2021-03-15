@@ -21,7 +21,7 @@ function HomePage() {
         <p className="github-login-description">
           To start using this service authenticate using Github
         </p>
-        <button className="github-login-btn" onClick={startSequence}>
+        <button className="github-login-btn btn btn-primary btn-lg" onClick={startSequence}>
           Login with Github
         </button>
       </>}
