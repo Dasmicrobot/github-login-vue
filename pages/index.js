@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useAuthContext } from '../src/auth/AuthContextProvider'
+import Footer from '../src/auth/Components/Footer';
 
 function HomePage() {
 
@@ -45,10 +46,13 @@ function HomePage() {
             </button>}
           </div>
         </main>
+        <Footer/>
       </div>
     </div>
 
-    <Footer/>
+
+
+
 
   </div>);
 }
