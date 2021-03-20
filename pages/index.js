@@ -46,11 +46,11 @@ function HomePage() {
             </button>}
           </div>
         </main>
-        <Footer/>
+
       </div>
     </div>
 
-
+    <Footer/>
 
 
 

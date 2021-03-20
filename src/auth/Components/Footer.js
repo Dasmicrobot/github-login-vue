@@ -1,24 +1,36 @@
 import React from 'react'
-import Nav from 'react-bootstrap/Nav';
+import About from '../Components/About';
+import Cookies from '../Components/Cookies';
+import TermOfUse from '../Components/TermOfUse';
+import Privacy from '../Components/Privacy';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 const Footer = () =>(
 
   <Container fluid style={{backgroundColor: '#212529', color: '#fff'}}>
     <Container>
-    <Nav className="justify-content-center" activeKey="/home">
-      <Nav.Item>
-        <Nav.Link href="/home">Privacy</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="/cookie">Cookies</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="/termUse">Term of use</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="/about">About</Nav.Link>
-      </Nav.Item>
-    </Nav>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/cookies">
+            <Cookies />
+          </Route>
+          <Route path="/termOfUse">
+            <TermOfUse />
+          </Route>
+          <Route path="/privacy">
+            <Privacy />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
     </Container>
     <Container>
       <p class="navbar-text">© 2021 Copyright:</p>
