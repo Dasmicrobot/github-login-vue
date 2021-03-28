@@ -10,7 +10,7 @@ export const Organisations = () => {
       setLoading(true);
       fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/github/organisations`, {
         headers: {
-          'X-Github-Token': token
+          'x-github-token': token
         }
       })
         .then(response => {
