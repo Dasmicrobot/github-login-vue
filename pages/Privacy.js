@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Privacy() {
+const Privacy = () => {
   return (
     <div>
-      <h1>Privacy term Page</h1>
+      <h1>Privacy Page</h1>
     </div>
   )
 }
+
+export default Privacy

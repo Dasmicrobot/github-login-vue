@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Cookies() {
+const Cookies = () => {
   return (
     <div>
-      <h1>Cookies term Page</h1>
+      <h1>Cookies Page</h1>
     </div>
   )
 }
+
+export default Cookies

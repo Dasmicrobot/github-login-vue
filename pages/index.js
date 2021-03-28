@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useAuthContext } from '../src/auth/AuthContextProvider'
-import Footer from './Footer';
+import Footer from '../src/auth/Footer';
 
 function HomePage() {
 

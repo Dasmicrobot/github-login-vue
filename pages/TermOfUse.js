@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function TermOfUse() {
+const TermOfUse = () => {
   return (
     <div>
-      <h1>Term of Use Page</h1>
+      <h1>Term of use Page</h1>
     </div>
   )
 }
+
+export default TermOfUse
