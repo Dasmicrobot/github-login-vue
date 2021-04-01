@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useAuthContext } from '../src/auth/AuthContextProvider'
 import Footer from '../src/Footer';
+import { Organisations } from '../src/github/Organisations'
 
 function HomePage() {
 
@@ -45,6 +46,8 @@ function HomePage() {
               Logout
             </button>}
           </div>
+
+          {isAuthenticated && <Organisations />}
         </main>
 
       </div>

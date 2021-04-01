@@ -1,6 +1,6 @@
 const STORAGE_KEY_TOKEN = 'token';
 const STORAGE_KEY_LAST_PAGE = 'pageBeforeAuthRedirect';
-const GITHUB_LOGIN_URL = `https://api.app.gitactivity.com/oauth/github/login`;
+const GITHUB_LOGIN_URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/oauth/github/login`;
 
 const saveValue = (key, val) => sessionStorage.setItem(key, val);
 const clearValue = (key) => sessionStorage.removeItem(key);
