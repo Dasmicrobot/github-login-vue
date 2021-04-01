@@ -6,4 +6,5 @@ export default function MyApp({ Component, pageProps }) {
   return (<AuthContextProvider>
     <Component {...pageProps} />
   </AuthContextProvider>);
+
 }
