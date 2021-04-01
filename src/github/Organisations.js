@@ -13,8 +13,9 @@ export const Organisations = () => {
           'x-github-token': token
         }
       })
-        .then(response => {
-          setOrgs(response.json());
+        .then(response => response.json())
+        .then(json => {
+          setOrgs(json);
           setLoading(false);
         })
         .catch(_ => {
