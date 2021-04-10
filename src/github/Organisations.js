@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useAuthContext } from '../auth/AuthContextProvider'
+import Link from 'next/link';
 
 export const Organisations = () => {
   const { isAuthenticated, token } = useAuthContext();
@@ -29,6 +30,10 @@ export const Organisations = () => {
   if (loading) return 'Loading ...'
   if (!Array.isArray(orgs) || !orgs.length) return 'Nothing found';
   // https://docs.github.com/en/rest/reference/orgs
-  return <ul>{orgs.map(org => <li key={org.id}>{org.description} {org.url}</li>)}</ul>
+  return (<ul className="list-group">{orgs.map(org => <li key={org.id} className="list-group-item">
+    <Link href={`/github/organisations/${org.login}`}>
+      <a>{org.login} {org.description} {org.url}</a>
+    </Link>
+  </li>)}</ul>)
 
 };
