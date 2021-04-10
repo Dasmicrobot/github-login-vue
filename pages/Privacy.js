@@ -1,10 +1,11 @@
 import React from 'react'
+import Page from '../src/layout/Page'
 
 const Privacy = () => {
   return (
-    <div>
+    <Page>
       <h1>Privacy Page</h1>
-    </div>
+    </Page>
   )
 }
 

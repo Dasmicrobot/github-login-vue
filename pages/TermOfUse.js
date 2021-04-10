@@ -1,10 +1,11 @@
 import React from 'react'
+import Page from '../src/layout/Page'
 
 const TermOfUse = () => {
   return (
-    <div>
+    <Page>
       <h1>Term of use Page</h1>
-    </div>
+    </Page>
   )
 }
 

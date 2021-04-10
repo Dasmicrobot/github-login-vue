@@ -1,10 +1,11 @@
 import React from 'react'
+import Page from '../src/layout/Page'
 
 const Cookies = () => {
   return (
-    <div>
+    <Page>
       <h1>Cookies Page</h1>
-    </div>
+    </Page>
   )
 }
 
