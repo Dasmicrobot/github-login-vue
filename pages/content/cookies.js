@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from '../src/layout/Page'
+import Page from '../../src/layout/Page'
 
 const Cookies = () => {
   return (

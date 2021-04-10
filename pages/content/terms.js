@@ -1,7 +1,7 @@
 import React from 'react'
-import Page from '../src/layout/Page'
+import Page from '../../src/layout/Page'
 
-const TermOfUse = () => {
+const Terms = () => {
   return (
     <Page>
       <h1>Term of use Page</h1>
@@ -9,4 +9,4 @@ const TermOfUse = () => {
   )
 }
 
-export default TermOfUse
+export default Terms
