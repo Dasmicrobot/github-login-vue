@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { useAuthContext } from '../src/auth/AuthContextProvider'
 import Footer from '../src/footer/Footer';
+import Header from '../src/Header';
+
 
 function HomePage() {
 
@@ -14,6 +16,7 @@ function HomePage() {
         </a>
       </Link>
     </header>
+    {/* <Header/> */}
 
     <div className="container-fluid">
       <div className="row">
@@ -52,9 +55,8 @@ function HomePage() {
 
     <Footer/>
 
-
-
-  </div>);
+  </div>
+  );
 }
 
 export default HomePage
