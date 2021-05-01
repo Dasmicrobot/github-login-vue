@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { useAuthContext } from '../../../src/auth/AuthContextProvider'
 import { Organisations } from '../../../src/github/Organisations'
 import Page from '../../../src/layout/Page'

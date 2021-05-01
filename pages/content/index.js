@@ -32,6 +32,7 @@ export async function getStaticProps(context) {
         { link: 'content/about', title: 'About' },
         { link: 'content/cookies', title: 'Cookie policy' },
         { link: 'content/github-org-missing', title: 'Github organisation missing' },
+        { link: 'content/github-repo-missing', title: 'Github repository missing' },
         { link: 'content/privacy', title: 'Privacy policy' },
         { link: 'content/terms', title: 'Terms of use' },
       ]
