@@ -25,17 +25,20 @@ export default ContentPages
 
 export async function getStaticProps(context) {
 
-  // TODO replace with require.context()
+  const requireContent = require.context('.', false, /\.js$/)
+  const linksToPages = requireContent.keys()
+    .filter(name => name !== './index.js')
+    .reduce((memo, name) => {
+      memo.push({
+        link: `content/${name.replace(/\.js$/, '')}`,
+        title: requireContent(name).title
+      })
+      return memo
+    }, []);
+
   return {
     props: {
-      pages: [
-        { link: 'content/about', title: 'About' },
-        { link: 'content/cookies', title: 'Cookie policy' },
-        { link: 'content/github-org-missing', title: 'Github organisation missing' },
-        { link: 'content/github-repo-missing', title: 'Github repository missing' },
-        { link: 'content/privacy', title: 'Privacy policy' },
-        { link: 'content/terms', title: 'Terms of use' },
-      ]
+      pages: linksToPages
     }
   }
 }

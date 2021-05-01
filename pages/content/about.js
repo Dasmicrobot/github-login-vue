@@ -3,6 +3,8 @@ import Page from '../../src/layout/Page'
 import Section from '../../src/layout/Section'
 import Link from 'next/link'
 
+export const title = 'About this app'
+
 const About = () => {
   return (
     <Page>
@@ -10,10 +12,10 @@ const About = () => {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item"><Link href="/content">Content</Link></li>
-            <li className="breadcrumb-item active" aria-current="page">About</li>
+            <li className="breadcrumb-item active" aria-current="page">{title}</li>
           </ol>
         </nav>
-        <h1 className="h2">About this app</h1>
+        <h1 className="h2">{title}</h1>
       </Section>
     </Page>
   )
