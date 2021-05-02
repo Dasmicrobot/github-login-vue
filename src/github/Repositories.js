@@ -41,7 +41,11 @@ export const Repositories = ({org}) => {
     <div className="card">
       <ul className="list-group list-group-flush">
         {repos.map(repo => <li key={repo.id} className="list-group-item">
-          {repo.full_name}
+          <div>{repo.full_name} <a href={repo.homepage || repo.html_url}>homepage</a></div>
+          <span className={`badge ${ repo.private ? 'badge-light' : 'badge-success'}`}>{ repo.private ? 'Private' : 'Public' }</span>
+          {repo.archived && <span className="badge badge-warning">Archived</span>}
+          <span className="badge badge-light">Created: {new Date(repo.created_at).toLocaleDateString()}</span>
+          <span className="badge badge-info">Last push: {new Date(repo.pushed_at).toLocaleDateString()}</span>
         </li>)}
       </ul>
     </div>
