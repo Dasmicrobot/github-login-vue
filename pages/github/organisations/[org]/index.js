@@ -7,8 +7,7 @@ import React, { useReducer } from 'react'
 
 const TimeUnit = {
   days: 'days',
-  weeks: 'weeks',
-  months: 'months'
+  weeks: 'weeks'
 }
 
 function OrganisationPage () {
@@ -46,6 +45,8 @@ function OrganisationPage () {
     })
   }
 
+  const pushedWithinDays = state.since * (state.since_unit === TimeUnit.weeks ? 7 : 1)
+
   return (<Page>
 
     <Section>
@@ -76,7 +77,7 @@ function OrganisationPage () {
         </div>
       </form>
 
-      {isAuthenticated && <Repositories org={org} />}
+      {isAuthenticated && <Repositories org={org} pushedWithinDays={pushedWithinDays} />}
     </Section>
   </Page>)
 }

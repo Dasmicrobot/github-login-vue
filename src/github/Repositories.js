@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react';
 import { useAuthContext } from '../auth/AuthContextProvider'
 import Link from 'next/link'
 
-export const Repositories = ({org}) => {
+export const Repositories = ({org, pushedWithinDays }) => {
   const { isAuthenticated, token } = useAuthContext();
   const [ repos, setRepos ] = useState(null);
   const [ loading, setLoading ] = useState(false);
   useEffect(() => {
     if (token && org) {
       setLoading(true);
-      fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/github/repositories?organisation=${org}`, {
+      fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/github/repositories?organisation=${org}&pushedWithinDays=${pushedWithinDays || ''}`, {
         headers: {
           'x-github-token': token
         }
@@ -28,7 +28,7 @@ export const Repositories = ({org}) => {
           setLoading(false);
         });
     }
-  }, [token, org]);
+  }, [token, org, pushedWithinDays]);
 
   if (!isAuthenticated) return null;
   if (loading) return (<div className="spinner-border" role="status">
