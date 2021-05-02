@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
+import '../src/footer/footer.css'
 import { AuthContextProvider } from '../src/auth/AuthContextProvider'
 
 
