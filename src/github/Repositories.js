@@ -46,6 +46,7 @@ export const Repositories = ({org, pushedWithinDays }) => {
           {repo.archived && <span className="badge badge-warning">Archived</span>}
           <span className="badge badge-light">Created: {new Date(repo.created_at).toLocaleDateString()}</span>
           <span className="badge badge-info">Last push: {new Date(repo.pushed_at).toLocaleDateString()}</span>
+          <div><Link href={`/github/organisations/${org}/${repo.name}?age_days=${pushedWithinDays}`}>Show commits</Link></div>
         </li>)}
       </ul>
     </div>
