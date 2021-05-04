@@ -1,49 +1,78 @@
 import React from 'react'
 import Link from 'next/link';
-//import styles from '../footer/footer.css'
+
 
 
 function Footer() {
   return (
 
-    <div style={{
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      width: '100%',
-      backgroundColor: '#4b4c4d',
-      color: 'white',
-      textAlign: 'center'
+    <div>
 
+      <div className="footer">
+        <ul className='footer.ul'>
+          <li className='list'>
+            <Link href='/TermOfUse'>
+              <a className='Link'>Term of use</a>
+            </Link>
+          </li>
+          <li className='list'>
+            <Link href='/About'>
+              <a className='Link'>About Us</a>
+            </Link>
+          </li>
+          <li className='list'>
+            <Link href='/Cookies'>
+              <a className='Link'>Cookies</a>
+            </Link>
+          </li>
+          <li className='list'>
+            <Link href='/Privacy'>
+              <a className='Link'>Privacy</a>
+            </Link>
+          </li>
+        </ul>
+        <div className='copyright'>
+          <p class='copyright'>Git Activity &copy; 2021</p>
+        </div>
 
-      }}
-      className='styles.footer'>
-      <ul className='styles.footer.ul'>
-        <li className='styles.footer.li'>
-          <Link href='/TermOfUse'>
-            Term of use
-          </Link>
-        </li>
-        <li >
-          <Link href='/About'>
-            About Us
-          </Link>
-        </li>
-        <li >
-          <Link href='/Cookies'>
-            Cookies
-          </Link>
-        </li>
-        <li >
-          <Link href='/Privacy'>
-            Privacy
-          </Link>
-        </li>
-      </ul>
-      <div className='styles.copyright'>
-        <p class='copyright'>Git Activity © 2021</p>
       </div>
+      <style jsx>
+        {`
+          .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #4b4c4d;
+            color: white;
+            height: 150px;
+          }
+          .Link{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+          }
+          .copyright{
+            position: absolute;
+            width: 100%;
+            color: white;
+            line-height:40px;
+            font-size:0.7em;
+            text-align:center;
+            bottom:0;
+            text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+          }
+          .list{
+            float: left;
+            text-decoration: none;
+            padding: 5px;
+            list-style-type: none;
+          }
+        `}
+        </style>
+
     </div>
-  )
+  );
 }
 export default Footer
