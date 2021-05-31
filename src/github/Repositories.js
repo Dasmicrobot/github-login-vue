@@ -1,26 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import { useAuthContext } from '../auth/AuthContextProvider'
 import Link from 'next/link'
+import { getAllRepos } from './api'
 
 export const Repositories = ({org, pushedWithinDays }) => {
   const { isAuthenticated, token } = useAuthContext();
   const [ repos, setRepos ] = useState(null);
   const [ loading, setLoading ] = useState(false);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (token && org) {
       setLoading(true);
-      fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/github/repositories?organisation=${org}&pushedWithinDays=${pushedWithinDays || ''}`, {
-        headers: {
-          'x-github-token': token
-        }
-      })
-        .then(response => response.json())
-        .then(json => {
-          if (Array.isArray(json)) {
-            setRepos(json);
-          } else {
-            setRepos([]);
-          }
+      getAllRepos({token, org, pushedWithinDays})
+        .then(repos => {
+          setRepos(repos);
           setLoading(false);
         })
         .catch(_ => {
@@ -36,7 +28,7 @@ export const Repositories = ({org, pushedWithinDays }) => {
   </div>)
 
   if (!Array.isArray(repos) || !repos.length) return 'Nothing found';
-  // https://docs.github.com/en/rest/reference/repos
+
   return (<>
     <div className="card">
       <ul className="list-group list-group-flush">

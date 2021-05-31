@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useLayoutEffect, useState } from 'react'
 import { useAuthContext } from '../auth/AuthContextProvider'
-import { Octokit } from "@octokit/core";
+import { getRepoCommitsSinceDays } from './api'
 
 const CommitListItem = ({item: {sha, html_url, commit}, ...rest}) => <li key={sha} className="list-group-item" {...rest}>
   <div>{commit.message} <a href={html_url}>url</a></div>
@@ -17,27 +17,12 @@ export const Commits = ({org, repo, ageDays }) => {
   const { isAuthenticated, token } = useAuthContext();
   const [ commits, setCommits ] = useState(null);
   const [ loading, setLoading ] = useState(false);
-  useEffect(() => {
-    const fetchCommits = async () => {
-      const octokit = new Octokit({
-        auth: token,
-      });
-      const sinceTime = Date.now() - ageDays * 1000 * 3600 * 24
-      const {data} = await octokit.request(`/repos/${org}/${repo}/commits?per_page=5`, {
-        since: new Date(sinceTime).toUTCString(),
-      })
-      return data
-    }
-
+  useLayoutEffect(() => {
     if (token && org && repo) {
       setLoading(true);
-      fetchCommits(token, org, repo)
-        .then(json => {
-          if (Array.isArray(json)) {
-            setCommits(json);
-          } else {
-            setCommits([]);
-          }
+      getRepoCommitsSinceDays({token, org, repo, ageDays})
+        .then(commits => {
+          setCommits(commits);
           setLoading(false);
         })
         .catch(_ => {
@@ -53,7 +38,7 @@ export const Commits = ({org, repo, ageDays }) => {
   </div>)
 
   if (!Array.isArray(commits) || !commits.length) return `No commits found in ${org}/${repo} in the last ${ageDays} days`;
-  // https://docs.github.com/en/rest/reference/repos#commits
+
   return (<>
     <div className="card">
       <ul className="list-group list-group-flush">

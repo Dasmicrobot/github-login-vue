@@ -1,26 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import { useAuthContext } from '../auth/AuthContextProvider'
 import Link from 'next/link';
+import { listAllUserOrgs } from './api'
 
 export const Organisations = () => {
   const { isAuthenticated, token } = useAuthContext();
   const [ orgs, setOrgs ] = useState([]);
   const [ loading, setLoading ] = useState(false);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (token) {
       setLoading(true);
-      fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/github/organisations`, {
-        headers: {
-          'x-github-token': token
-        }
-      })
-        .then(response => response.json())
-        .then(json => {
-          if (Array.isArray(json)) {
-            setOrgs(json);
-          } else {
-            setOrgs([]);
-          }
+      listAllUserOrgs({token})
+        .then(orgs => {
+          setOrgs(orgs);
           setLoading(false);
         })
         .catch(_ => {
