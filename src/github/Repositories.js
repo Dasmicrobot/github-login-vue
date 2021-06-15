@@ -3,6 +3,21 @@ import { useAuthContext } from '../auth/AuthContextProvider'
 import Link from 'next/link'
 import { getAllRepos } from './api'
 
+const RepoListItem = ({ repo, className, pushedWithinDays }) => {
+  return (<li className={className}>
+    <div className="d-flex">
+      <Link href={`/github/organisations/${repo.owner.login}/${repo.name}?age_days=${pushedWithinDays}`}>
+        {repo.full_name}
+      </Link>
+    </div>
+    <span className="badge badge-light">Last push: {new Date(repo.pushed_at).toLocaleDateString()}</span>
+    <span className="badge badge-light">Created: {new Date(repo.created_at).toLocaleDateString()}</span>
+    <span className={`badge ${ repo.private ? 'badge-light' : 'badge-success'}`}>{ repo.private ? 'Private' : 'Public' }</span>
+    {repo.archived && <span className="badge badge-warning">Archived</span>}
+    <a href={repo.homepage || repo.html_url} className="small ml-3">🔗 Github</a>
+  </li>);
+};
+
 export const Repositories = ({org, pushedWithinDays }) => {
   const { isAuthenticated, token } = useAuthContext();
   const [ repos, setRepos ] = useState(null);
@@ -32,14 +47,7 @@ export const Repositories = ({org, pushedWithinDays }) => {
   return (<>
     <div className="card">
       <ul className="list-group list-group-flush">
-        {repos.map(repo => <li key={repo.id} className="list-group-item">
-          <div>{repo.full_name} <a href={repo.homepage || repo.html_url}>homepage</a></div>
-          <span className={`badge ${ repo.private ? 'badge-light' : 'badge-success'}`}>{ repo.private ? 'Private' : 'Public' }</span>
-          {repo.archived && <span className="badge badge-warning">Archived</span>}
-          <span className="badge badge-light">Created: {new Date(repo.created_at).toLocaleDateString()}</span>
-          <span className="badge badge-info">Last push: {new Date(repo.pushed_at).toLocaleDateString()}</span>
-          <div><Link href={`/github/organisations/${org}/${repo.name}?age_days=${pushedWithinDays}`}>Show commits</Link></div>
-        </li>)}
+        {repos.map(repo => <RepoListItem key={repo.id} repo={repo} pushedWithinDays={pushedWithinDays} className="list-group-item" />)}
       </ul>
     </div>
     <p className="text-muted small mt-3 text-right"><Link href="/content/github-repo-missing">Repository is not listed here</Link></p>
